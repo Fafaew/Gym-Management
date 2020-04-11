@@ -1,0 +1,22 @@
+{
+  "instructors": [
+    {
+      "id": 1,
+      "avatar_url": "asease456a",
+      "name": "Daniel Aquino",
+      "birth": 570758400000,
+      "gender": "M",
+      "services": "Musculação",
+      "created_at": 1586541408669
+    },
+    {
+      "id": 2,
+      "avatar_url": "asoeiase988h",
+      "name": "Tiago",
+      "birth": 190294099200000,
+      "gender": "M",
+      "services": "Crossfit",
+      "created_at": 1586541426722
+    }
+  ]
+}
