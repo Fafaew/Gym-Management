@@ -1,4 +1,50 @@
 {
+  "members": [
+    {
+      "id": 1,
+      "avatar_url": "ase54ase65",
+      "name": "Rafael",
+      "email": "rafael@gmail.com",
+      "birth": 673228800000,
+      "gender": "M",
+      "blood": "A+",
+      "weight": "89",
+      "height": "184"
+    },
+    {
+      "id": 2,
+      "avatar_url": "asiuehiaseuh",
+      "name": "Benício",
+      "email": "benicio@gmail.com",
+      "birth": 683942400000,
+      "gender": "M",
+      "blood": "A+",
+      "weight": "12",
+      "height": "188"
+    },
+    {
+      "id": 3,
+      "avatar_url": "as54e4as654",
+      "name": "Daniel",
+      "email": "daniel@gmail.com",
+      "birth": 647136000000,
+      "gender": "M",
+      "blood": "A+",
+      "weight": "40",
+      "height": "199"
+    },
+    {
+      "id": 4,
+      "avatar_url": "asiueghase79",
+      "name": "Izabela",
+      "email": "izabela@gmail.com",
+      "birth": 573696000000,
+      "gender": "F",
+      "blood": "A+",
+      "weight": "40",
+      "height": "160"
+    }
+  ],
   "instructors": [
     {
       "id": 5,

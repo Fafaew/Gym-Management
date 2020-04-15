@@ -1,11 +1,10 @@
 const fs = require('fs')
-const data = require("./data.json")
-const { age, date } = require('./utils')
+const data = require("../data.json")
+const { age, date } = require('../utils')
 
 exports.index = function(req, res) {
     return res.render("instructors/index", { instructors: data.instructors })
 }
-
 
 //show
 exports.show = function (req,res) {
@@ -26,6 +25,10 @@ exports.show = function (req,res) {
     }
 
     return res.render("instructors/show", { instructor })
+}
+
+exports.create = function(req,res){
+    return res.render('instructors/create')
 }
 
 //create
@@ -63,7 +66,7 @@ exports.post = function (req, res){
     })
 
     //return res.send(req.body)
-    }
+}
 
 //edit
 exports.edit = function(req,res){
@@ -78,7 +81,7 @@ exports.edit = function(req,res){
 
     const instructor = {
         ...foundInstructor,
-        birth: '2000-02-01'
+        birth: date(foundInstructor.birth).iso
     }
 
 
