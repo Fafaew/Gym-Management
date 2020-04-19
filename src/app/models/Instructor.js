@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 const { date } = require('../../lib/utils')
 
@@ -21,6 +22,24 @@ module.exports = {
         },
 
         create(data, callback ) {
+=======
+const { date } = require('../../lib/utils')
+const db = require('../../config/db')
+
+module.exports = {
+    all(callback) {
+
+        db.query(`SELECT * FROM instructors`, function(err, results){
+            if(err) return res.send("Database Error!")
+
+            callback(results.rows)
+    })
+
+    },
+
+    create(data, callback){
+
+>>>>>>> e76f3254c9bc81da98bf404f14db070c4875ed83
         const query = `
             INSERT INTO instructors (
                 name,
@@ -29,7 +48,11 @@ module.exports = {
                 services,
                 birth,
                 created_at
+<<<<<<< HEAD
             )  VALUES ($1, $2, $3, $4, $5, $6)  
+=======
+            ) VALUES ($1, $2, $3, $4, $5, $6)
+>>>>>>> e76f3254c9bc81da98bf404f14db070c4875ed83
             RETURNING id
         `
         const values = [
@@ -40,6 +63,7 @@ module.exports = {
             date(data.birth).iso,
             date(Date.now()).iso
         ]
+<<<<<<< HEAD
 
         db.query(query, values, function(err, results){
             if(err) throw `Database Error! ${err}`
@@ -100,4 +124,25 @@ module.exports = {
         }
         
         
+=======
+        db.query(query, values, function(err, results) {
+            if(err) return res.send("Database Error!")
+            
+            callback(results.rows[0])
+    } )
+
+    },
+    find(id, callback) {
+        db.query(`
+            SELECT * 
+            FROM instructors 
+            WHERE id = $1`, [id], function(err, results) {
+                throw `Database Error!`                
+
+                callback(results.rows[0])
+            })
+          
+    }
+
+>>>>>>> e76f3254c9bc81da98bf404f14db070c4875ed83
 }

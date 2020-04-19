@@ -1,5 +1,6 @@
 const { age, date } = require('../../lib/utils')
 
+<<<<<<< HEAD
 const Member = require('../models/Member')
 
 module.exports = {
@@ -65,11 +66,44 @@ module.exports = {
     },
 
     put(req,res){
+=======
+
+module.exports = {
+    index(req, res){
+        return res.render("members/index")
+    },
+
+    create(req, res){
+        return res.render('members/create')
+    },
+
+    post(req, res){
+        const keys = Object.keys(req.body)
+
+    for(key of keys) {
+        if (req.body[key] == "") {    
+            return res.send('Please, fill all fields!')
+        }
+    }
+
+
+    return
+    },
+
+    show(req, res){
+        return
+    },
+    edit(req, res){
+        return
+    },
+    put(req, res){
+>>>>>>> e76f3254c9bc81da98bf404f14db070c4875ed83
         const keys = Object.keys(req.body)
 
         for(key of keys) {
             if (req.body[key] == "") {    
                 return res.send('Please, fill all fields!')
+<<<<<<< HEAD
         }
     }
         Member.update(req.body, function(){
@@ -81,7 +115,20 @@ module.exports = {
         Member.delete(req.body.id, function(){
             return res.redirect(`/members`)
         })
+=======
+            }
+        }
+        return
+        
+    },
+    delete(req, res){
+        return
+>>>>>>> e76f3254c9bc81da98bf404f14db070c4875ed83
     },
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e76f3254c9bc81da98bf404f14db070c4875ed83

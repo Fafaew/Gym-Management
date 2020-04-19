@@ -29,6 +29,10 @@ module.exports = {
                 iso: `${year}-${month}-${day}`,
                 birthDay: `${day}/${month}`,
                 format: `${day}/${month}/${year}`
+<<<<<<< HEAD:src/lib/utils.js
+=======
+                
+>>>>>>> e76f3254c9bc81da98bf404f14db070c4875ed83:utils.js
             }
         }
     
