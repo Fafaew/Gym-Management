@@ -1,14 +1,33 @@
 const { age, date } = require('../../lib/utils')
 
-<<<<<<< HEAD
 const Member = require('../models/Member')
 
 module.exports = {
     index(req,res){
+        let { filter, page, limit } = req.query
 
-        Member.all(function(members) {
-            return res.render("members/index", {members})
-        })
+        page = page || 1
+        limit = limit || 2
+        let offset = limit * (page - 1)
+
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(members){
+
+                const pagination = { 
+                    total: Math.ceil(members[0].total / limit),
+                    page
+                }
+                return res.render("members/index", { members, pagination, filter })
+                
+            }
+                        
+        }
+
+        Member.paginate(params)
         
 
     },
@@ -66,44 +85,11 @@ module.exports = {
     },
 
     put(req,res){
-=======
-
-module.exports = {
-    index(req, res){
-        return res.render("members/index")
-    },
-
-    create(req, res){
-        return res.render('members/create')
-    },
-
-    post(req, res){
-        const keys = Object.keys(req.body)
-
-    for(key of keys) {
-        if (req.body[key] == "") {    
-            return res.send('Please, fill all fields!')
-        }
-    }
-
-
-    return
-    },
-
-    show(req, res){
-        return
-    },
-    edit(req, res){
-        return
-    },
-    put(req, res){
->>>>>>> e76f3254c9bc81da98bf404f14db070c4875ed83
         const keys = Object.keys(req.body)
 
         for(key of keys) {
             if (req.body[key] == "") {    
                 return res.send('Please, fill all fields!')
-<<<<<<< HEAD
         }
     }
         Member.update(req.body, function(){
@@ -115,20 +101,7 @@ module.exports = {
         Member.delete(req.body.id, function(){
             return res.redirect(`/members`)
         })
-=======
-            }
-        }
-        return
-        
-    },
-    delete(req, res){
-        return
->>>>>>> e76f3254c9bc81da98bf404f14db070c4875ed83
     },
 }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e76f3254c9bc81da98bf404f14db070c4875ed83
